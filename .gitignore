@@ -1,0 +1,6 @@
+#albciff: GITIGNORE BASE DEL PROJECTE
+/.gradle/
+/target/
+/build/
+/bin/
+*.log

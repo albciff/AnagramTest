@@ -1,0 +1,48 @@
+/**
+ * Build.gradle base del projecte
+ * 
+ * @author albciff
+ */
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+repositories {
+	mavenCentral()
+	maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies{
+	testCompile (group: 'junit', name: 'junit', version: '4.11')
+}
+
+// volem que el encoding de la compilació sigui UTF-8
+compileJava.options.encoding = 'UTF-8'
+
+// java 1.7 les fonts i els .class generats
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+group = 'cat.test.anagram'
+version = '0.0.0.1'
+
+// nom i descripció dels jars
+project.archivesBaseName = "AnagramPoem"
+description = "Anagram poem test"
+
+task help << {
+	
+	println '----------------------------------------------'
+	println 'gradle test --> Permet executar els test unitaris'
+	println 'gradle jar --> Genera el jar per a poder provar si el contingut d\'un fitxer'
+	println 'es considera un poema anagrama.'
+	println '----------------------------------------------'
+	
+}
+
+// forcem el UTF-8 de l'execució dels test
+// per evitar problemes amb tema accents i demes
+// dels jocs de proves q son strings
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
