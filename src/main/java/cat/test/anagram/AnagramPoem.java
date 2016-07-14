@@ -28,6 +28,7 @@ public class AnagramPoem {
 			poem = pbuilder.parse(new File(args[1]));
 		}else{
 			logErrorArgs();	
+			return;
 		}
 		
 		System.out.println("El Poema proporciona és anagramic? : " + poem.isAnagram());
